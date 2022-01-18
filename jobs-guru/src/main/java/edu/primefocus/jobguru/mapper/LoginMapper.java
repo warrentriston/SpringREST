@@ -1,6 +1,7 @@
 package edu.primefocus.jobguru.mapper;
 
 import edu.primefocus.jobguru.dataaccessobject.Login;
+import edu.primefocus.jobguru.dataaccessobject.Profile;
 import edu.primefocus.jobguru.datatransferobject.LoginDTO;
 import lombok.NonNull;
 
@@ -30,5 +31,6 @@ public class LoginMapper {
                 .password(login.getPassword())
                 .role(login.getRole())
                 .build();
+
     }
 }

@@ -1,6 +1,10 @@
 package edu.primefocus.jobguru.dataaccessobject;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Value;
 
 import javax.persistence.Column;
@@ -18,7 +22,7 @@ import javax.persistence.UniqueConstraint;
                 columnNames = "username"
         ))
 @Builder
-@Value
+@Getter
 public class Login {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
