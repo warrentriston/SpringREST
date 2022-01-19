@@ -22,6 +22,8 @@ import javax.persistence.UniqueConstraint;
                 columnNames = "username"
         ))
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 public class Login {
     @Id

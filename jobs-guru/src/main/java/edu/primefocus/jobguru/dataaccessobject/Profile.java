@@ -1,5 +1,6 @@
 package edu.primefocus.jobguru.dataaccessobject;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -20,6 +21,8 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "tbl_profile")
 @Builder(toBuilder = true)
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 public class Profile {
 
