@@ -29,6 +29,7 @@ public class ProfileMapper {
     public static ProfileDTO makeProfileDto(@NonNull final Profile profile){
         return ProfileDTO.builder().name(profile.getName())
                 .description(profile.getDescription())
+                .jobsList(profile.getJob())
                 .build();
     }
 }

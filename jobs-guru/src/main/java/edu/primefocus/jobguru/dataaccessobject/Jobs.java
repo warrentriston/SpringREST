@@ -2,54 +2,42 @@ package edu.primefocus.jobguru.dataaccessobject;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
-import lombok.Value;
-import org.hibernate.boot.model.source.spi.IdentifierSource;
-import org.springframework.boot.autoconfigure.batch.BatchProperties;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import java.util.List;
 
 @Entity
-@Table(name = "tbl_profile")
+@Table(name = "tbl_job")
 @Builder(toBuilder = true)
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
-public class Profile {
+public class Jobs {
 
     @Id
-    @Column(name = "profile_id")
+    @Column(name = "job_id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    long profileId;
+    long jobId;
 
     @NonNull
-    @Column(name = "name")
-    String name;
+    @Column(name = "job_role", nullable = false)
+    String joRole;
 
     @Column(name = "description", nullable = false)
     String description;
 
-    @OneToOne
-    @JoinColumn(name = "login_id",
-                referencedColumnName = "login_id")
-    Login login;
-
-    @OneToMany(
-            mappedBy = "profile"
-    )
-    List<Jobs> job;
+    @ManyToOne
+    @JoinColumn(name = "profile_id",
+                referencedColumnName = "profile_id")
+    Profile profile;
 }
