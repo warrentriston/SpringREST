@@ -1,5 +1,6 @@
 package edu.primefocus.jobguru.dataaccessobject;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -36,6 +37,7 @@ public class Jobs {
     @Column(name = "description", nullable = false)
     String description;
 
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "profile_id",
                 referencedColumnName = "profile_id")
