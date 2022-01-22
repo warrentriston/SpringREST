@@ -30,6 +30,7 @@ public class ProfileMapper {
         return ProfileDTO.builder().name(profile.getName())
                 .description(profile.getDescription())
                 .jobsList(profile.getJob())
+                .appliedJobsList(profile.getJobsList())
                 .build();
     }
 }

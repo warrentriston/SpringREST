@@ -13,9 +13,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import java.util.List;
 
 @Entity
 @Table(name = "tbl_job")
@@ -42,4 +46,19 @@ public class Jobs {
     @JoinColumn(name = "profile_id",
                 referencedColumnName = "profile_id")
     Profile profile;
+
+    @JsonIgnore
+    @ManyToMany
+    @JoinTable(
+            name = "tbl_user_jobs",
+            joinColumns = @JoinColumn(
+                    name = "job_id",
+                    referencedColumnName = "job_id"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "profile_id",
+                    referencedColumnName = "profile_id"
+            )
+    )
+    List<Profile> profileList;
 }

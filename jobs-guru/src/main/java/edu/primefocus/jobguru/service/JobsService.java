@@ -15,4 +15,6 @@ public interface JobsService {
      * @return {@link Profile} object if inserted successfully
      */
     public Profile create(List<Jobs> jobsList, long id);
+
+    public Profile applyJob(long profileId, long jobId);
 }

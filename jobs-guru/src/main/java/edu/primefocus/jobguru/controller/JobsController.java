@@ -46,4 +46,10 @@ public class JobsController {
     public ProfileDTO create(@RequestBody @NonNull List<JobsDTO> jobsDTOList, @PathVariable("id") @NonNull long id){
         return ProfileMapper.makeProfileDto(jobsService.create(JobMapper.makeJobsList(jobsDTOList), id));
     }
+
+    @PostMapping(path = "/apply/{profileid}/{jobid}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public ProfileDTO apply(@PathVariable("profileid") @NonNull long profileId, @PathVariable("jobid") @NonNull long jobId){
+        return ProfileMapper.makeProfileDto(jobsService.applyJob(profileId, jobId));
+    }
 }

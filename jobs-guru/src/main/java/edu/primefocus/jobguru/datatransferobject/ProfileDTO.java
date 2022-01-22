@@ -20,4 +20,7 @@ public class ProfileDTO {
 
     @Nullable
     List<Jobs> jobsList;
+
+    @Nullable
+    List<Jobs> appliedJobsList;
 }
